@@ -4,43 +4,58 @@ using UnityEngine;
 
 public class LBController : MonoBehaviour
 {
-    public Animator anim;
-    public bool isMoving;
-    public GameObject darkMode;
-    public Animator darkAnim;
-    public Vector3 velocity;
-    public float speed = 2.0f;
+    private Animator anim;
+    public float direction;
+    public float speed = 10.0f;
+    public float jumpSpeed = 10.0f;
+    private Rigidbody2D rb;
+    public bool faceRight;
+    public Transform groundCheck;
+    public float groundCheckRadius;
+    public LayerMask groundLayer;
+    private bool isTouchingGround;
+    public GameController gC;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>(); 
-        isMoving = false;
-        darkAnim = darkMode.GetComponent<Animator>();
-        velocity = new Vector3(0f, 0f, 0f);
+        rb = GetComponent<Rigidbody2D>();
+        faceRight = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("right")){
-            isMoving = true;
-            velocity = new Vector3(2f, 0f, 0f);
-        }
-        if (Input.GetKeyUp("right")){
-            isMoving = false;
-            velocity = new Vector3(0f,0f,0f);
-        }
-        transform.position = transform.position + velocity * Time.deltaTime * speed;
-        darkMode.transform.position = transform.position + velocity * Time.deltaTime * speed;
-
-        if (isMoving == true){
-            anim.Play("LBRunRight");
-            darkAnim.Play("DBRunRight");
+        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        direction = Input.GetAxis("Horizontal");
+        if (direction > 0f || direction < 0f){
+            rb.velocity = new Vector2(direction * speed, rb.velocity.y);
+            if (direction > 0f && !(faceRight)){
+                    Flip();
+            }
+            if (direction < 0f && (faceRight)){
+                Flip();
+            }
         }
         else{
-            anim.Play("LBIdle");
-            darkAnim.Play("DBIdle");
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
+        if (Input.GetKeyDown("up") && isTouchingGround == true){
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        }
+
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        anim.SetBool("OnGround", isTouchingGround);
+        anim.SetInteger("IsDark",  gC.dayOrNight);
+
+    }
+
+    void Flip()
+    {
+        Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
+        faceRight = !faceRight;
     }
 }
