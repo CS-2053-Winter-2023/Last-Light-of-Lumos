@@ -8,6 +8,7 @@ public class LBController : MonoBehaviour
     public float direction;
     public float speed = 9.0f;
     public float jumpSpeed = 11.0f;
+    public float peak;
     private Rigidbody2D rb;
     public bool faceRight;
     public Transform groundCheck;
@@ -23,6 +24,7 @@ public class LBController : MonoBehaviour
     {
         anim = GetComponent<Animator>(); 
         rb = GetComponent<Rigidbody2D>();
+        peak = transform.position.y + 4;
         faceRight = true;
         atPeak = false;
         isDescending = true;
