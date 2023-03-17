@@ -14,8 +14,8 @@ public class LBController : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
-    private bool isDescending;
-    private bool atPeak;
+    public bool isDescending;
+    public bool atPeak;
     public GameController gC;
 
     // Start is called before the first frame update
