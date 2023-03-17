@@ -15,9 +15,9 @@ public class LBController : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
-    public bool isDescending;
-    public bool atPeak;
+    public int jumpState;
     public GameController gC;
+    public bool shifted;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +26,7 @@ public class LBController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         peak = transform.position.y + 4;
         faceRight = true;
-        atPeak = false;
-        isDescending = true;
+        jumpState = 0;
     }
 
     // Update is called once per frame
@@ -51,9 +50,33 @@ public class LBController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
         }
 
+        if (isTouchingGround){
+            jumpState = 0;
+        }
+        if (!(isTouchingGround)){
+            if (rb.velocity.y > 0){
+                jumpState = 1;
+            }
+            else if (rb.velocity.y < 0){
+                jumpState = -1;
+            }
+            else{
+                jumpState = 2;
+            }
+        }
+
+        if (gC.day.activeInHierarchy == true){
+          shifted = true;
+        }
+        else{
+            shifted = false;
+        }
+
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         anim.SetBool("OnGround", isTouchingGround);
         anim.SetInteger("IsDark",  gC.dayOrNight);
+        anim.SetInteger("jumpState", jumpState);
+        anim.SetBool("shifted", shifted);
 
     }
 
