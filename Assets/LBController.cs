@@ -6,14 +6,15 @@ public class LBController : MonoBehaviour
 {
     private Animator anim;
     public float direction;
-    public float speed = 10.0f;
-    public float jumpSpeed = 10.0f;
+    public float speed = 9.0f;
+    public float jumpSpeed = 11.0f;
     private Rigidbody2D rb;
     public bool faceRight;
     public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
+    private bool isDescending;
     public GameController gC;
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class LBController : MonoBehaviour
         anim = GetComponent<Animator>(); 
         rb = GetComponent<Rigidbody2D>();
         faceRight = true;
+        isDescending = true;
     }
 
     // Update is called once per frame
