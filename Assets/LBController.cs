@@ -15,6 +15,7 @@ public class LBController : MonoBehaviour
     public LayerMask groundLayer;
     private bool isTouchingGround;
     private bool isDescending;
+    private bool atPeak;
     public GameController gC;
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class LBController : MonoBehaviour
         anim = GetComponent<Animator>(); 
         rb = GetComponent<Rigidbody2D>();
         faceRight = true;
+        atPeak = false;
         isDescending = true;
     }
 
@@ -59,5 +61,9 @@ public class LBController : MonoBehaviour
         currentScale.x *= -1;
         transform.localScale = currentScale;
         faceRight = !faceRight;
+    }
+
+    void JumpState(){
+
     }
 }
