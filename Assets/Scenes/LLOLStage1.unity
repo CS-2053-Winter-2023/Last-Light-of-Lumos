@@ -1159,6 +1159,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 84098626}
+  timeOffset: 5
+  posOffset: {x: 5, y: 0.5}
+  startPos: {x: 4.5546083, y: 5.4400406, z: -10}
+  endPos: {x: 4.55461, y: 5.440039, z: -10}
+  leftLimit: -5
+  rightLimit: 104
+  topLimit: 200
+  bottomLimit: 1
 --- !u!1 &900361460
 GameObject:
   m_ObjectHideFlags: 0
