@@ -19,12 +19,14 @@ public class LBController : MonoBehaviour
     public int jumpState;
     public GameController gC;
     public bool shifted;
+    public AudioSource jump;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>(); 
         rb = GetComponent<Rigidbody2D>();
+        jump = GetComponent<AudioSource>();
         peak = transform.position.y + 4;
         faceRight = true;
         jumpState = 0;
@@ -51,6 +53,7 @@ public class LBController : MonoBehaviour
 
         if (Input.GetKeyDown("up") && isTouchingGround == true){
             rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            jump.Play();
         }
 
         if (isTouchingGround){
