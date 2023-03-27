@@ -11,6 +11,7 @@ public GameObject dayFloor;
 public GameObject night;
 public GameObject nightFloor;
 public int dayOrNight = 0;
+public AudioSource shiftSound;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +20,14 @@ public int dayOrNight = 0;
         night.SetActive(false);
         dayFloor.SetActive(true);
         nightFloor.SetActive(false);
+        shiftSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown("space")){
-            Debug.Log(dayOrNight);
+            shiftSound.Play();
             if (dayOrNight == 0){
                 day.SetActive(false);
                 night.SetActive(true);
