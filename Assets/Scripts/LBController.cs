@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LBController : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class LBController : MonoBehaviour
     public bool isTouchingWall;
     public int jumpState;
     public GameController gC;
-    public bool shifted;
+    public bool shifted, win;
     public AudioSource jump;
 
     // Start is called before the first frame update
@@ -31,56 +32,62 @@ public class LBController : MonoBehaviour
         faceRight = true;
         jumpState = 0;
         isTouchingWall = false;
+        win = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        direction = Input.GetAxis("Horizontal");
-        if (direction > 0f || direction < 0f){
-            rb.velocity = new Vector2(direction * speed, rb.velocity.y);
-            if (direction > 0f && !(faceRight)){
+        if (win == false){
+            direction = Input.GetAxis("Horizontal");
+            if (direction > 0f || direction < 0f){
+                rb.velocity = new Vector2(direction * speed, rb.velocity.y);
+                if (direction > 0f && !(faceRight)){
+                        Flip();
+                }
+                if (direction < 0f && (faceRight)){
                     Flip();
-            }
-            if (direction < 0f && (faceRight)){
-                Flip();
-            }
-        }
-        else{
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
-
-        if (Input.GetKeyDown("up") && isTouchingGround == true){
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-            jump.Play();
-        }
-
-        if (isTouchingGround){
-            jumpState = 0;
-        }
-        if (!(isTouchingGround)){
-            if (rb.velocity.y > 0){
-                jumpState = 1;
-            }
-            else if (rb.velocity.y < 0){
-                jumpState = -1;
+                }
             }
             else{
-                jumpState = 2;
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
+
+            if (Input.GetKeyDown("up") && isTouchingGround == true){
+                rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+                jump.Play();
+            }
+
+            if (isTouchingGround){
+                jumpState = 0;
+            }
+            if (!(isTouchingGround)){
+                if (rb.velocity.y > 0){
+                    jumpState = 1;
+                }
+                else if (rb.velocity.y < 0){
+                    jumpState = -1;
+                }
+                else{
+                    jumpState = 2;
+                }
+            }
+
+            if (gC.day.activeInHierarchy == true){
+            shifted = true;
+            }
+            else{
+                shifted = false;
             }
         }
-
-        if (gC.day.activeInHierarchy == true){
-          shifted = true;
-        }
         else{
-            shifted = false;
+            rb.velocity = new Vector2(0f,0f);
         }
 
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         anim.SetBool("OnGround", isTouchingGround);
-        anim.SetInteger("IsDark",  gC.dayOrNight);
+        anim.SetInteger("IsDark",  gC.dayOrNight);            
         anim.SetInteger("jumpState", jumpState);
         anim.SetBool("shifted", shifted);
 
@@ -97,6 +104,9 @@ public class LBController : MonoBehaviour
     void OnTriggerEnter2D (Collider2D other){
         if (other.gameObject.tag == "Border"){
             isTouchingWall = true;
+        }
+        if (other.gameObject.tag == "End"){
+            win = true;
         }
     }
 }
