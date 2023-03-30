@@ -9,16 +9,14 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
 
-public GameObject day;
-public GameObject dayFloor;
-public GameObject night;
-public GameObject nightFloor;
-public GameObject winMessage;
-public int dayOrNight = 0, i = 0;
+public GameObject day, dayFloor;
+public GameObject night, nightFloor;
+public GameObject winMessage, lightIcon, darkIcon;
+public int dayOrNight = 0, i = 0, lightPoints, darkPoints, totalLight, totalDark;
 public float currentTime;
 public AudioSource shiftSound;
 public LBController lb;
-public TextMeshProUGUI timer;
+public TextMeshProUGUI timer, darkDisplay, lightDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +27,15 @@ public TextMeshProUGUI timer;
         nightFloor.SetActive(false);
         shiftSound = GetComponent<AudioSource>();
         winMessage.SetActive(false);
+        lightIcon.SetActive(false);
+        darkIcon.SetActive(false);
         currentTime = 0f;
+        darkPoints = 0;
+        lightPoints = 0;
+        totalLight = 10;
+        totalDark = 10;
+        darkDisplay.text = "";
+        lightDisplay.text = "";
     }
 
     // Update is called once per frame
@@ -74,6 +80,10 @@ public TextMeshProUGUI timer;
     void WinCondition()
     {
         winMessage.SetActive(true);
+        lightDisplay.text = "Light Gems Collected: " + lightPoints + " / " + totalLight;
+        lightIcon.SetActive(true);
+        darkDisplay.text = "Dark Gems Collected: " + darkPoints + " / " + totalDark;
+        darkIcon.SetActive(true);
     }
 }
 

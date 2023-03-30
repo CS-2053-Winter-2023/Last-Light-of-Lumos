@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Border
   - End
+  - Collectible
+  - LightGem
+  - DarkGem
   layers:
   - Default
   - TransparentFX

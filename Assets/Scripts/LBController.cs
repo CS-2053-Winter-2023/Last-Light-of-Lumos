@@ -108,5 +108,14 @@ public class LBController : MonoBehaviour
         if (other.gameObject.tag == "End"){
             win = true;
         }
+        if (other.gameObject.tag == "DarkGem"){
+            other.gameObject.SetActive(false);
+            gC.darkPoints++;
+        }
+        if (other.gameObject.tag == "LightGem"){
+            other.gameObject.SetActive(false);
+            gC.lightPoints++;
+        } 
+
     }
 }
