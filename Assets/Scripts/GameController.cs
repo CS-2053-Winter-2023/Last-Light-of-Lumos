@@ -14,9 +14,10 @@ public GameObject night, nightFloor;
 public GameObject winMessage, lightIcon, darkIcon;
 public int dayOrNight = 0, i = 0, lightPoints, darkPoints, totalLight, totalDark;
 public float currentTime;
-public AudioSource shiftSound;
+public AudioSource shiftSound, levelMusic;
 public LBController lb;
 public TextMeshProUGUI timer, darkDisplay, lightDisplay;
+public bool winState;
 
     // Start is called before the first frame update
     void Start()
@@ -26,22 +27,24 @@ public TextMeshProUGUI timer, darkDisplay, lightDisplay;
         dayFloor.SetActive(true);
         nightFloor.SetActive(false);
         shiftSound = GetComponent<AudioSource>();
+        levelMusic = GetComponent<AudioSource>();
+        levelMusic.Play();
         winMessage.SetActive(false);
         lightIcon.SetActive(false);
         darkIcon.SetActive(false);
         currentTime = 0f;
         darkPoints = 0;
         lightPoints = 0;
-        totalLight = 10;
-        totalDark = 10;
         darkDisplay.text = "";
         lightDisplay.text = "";
+        winState = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space")){
+        if (Input.GetKeyDown("space") && winState == false){
             shiftSound.Play();
             if (dayOrNight == 0){
                 day.SetActive(false);
@@ -79,9 +82,17 @@ public TextMeshProUGUI timer, darkDisplay, lightDisplay;
 
     void WinCondition()
     {
+        winState = true;
         winMessage.SetActive(true);
+        StartCoroutine(DisplayScore());
+    }
+
+    public IEnumerator DisplayScore()
+    {
+        yield return new WaitForSeconds(1.5f);
         lightDisplay.text = "Light Gems Collected: " + lightPoints + " / " + totalLight;
         lightIcon.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
         darkDisplay.text = "Dark Gems Collected: " + darkPoints + " / " + totalDark;
         darkIcon.SetActive(true);
     }
