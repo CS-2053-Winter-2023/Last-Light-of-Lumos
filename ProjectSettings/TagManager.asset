@@ -10,6 +10,7 @@ TagManager:
   - Collectible
   - LightGem
   - DarkGem
+  - BottomBorder
   layers:
   - Default
   - TransparentFX

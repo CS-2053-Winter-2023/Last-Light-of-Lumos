@@ -20,19 +20,20 @@ public class LBController : MonoBehaviour
     public int jumpState;
     public GameController gC;
     public bool shifted, win;
-    public AudioSource jump;
+    public int death;
+
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>(); 
         rb = GetComponent<Rigidbody2D>();
-        jump = GetComponent<AudioSource>();
         peak = transform.position.y + 4;
         faceRight = true;
         jumpState = 0;
         isTouchingWall = false;
         win = false;
+        death = 0;
     }
 
     // Update is called once per frame
@@ -56,7 +57,6 @@ public class LBController : MonoBehaviour
 
             if (Input.GetKeyDown("up") && isTouchingGround == true){
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
-                jump.Play();
             }
 
             if (isTouchingGround){
@@ -116,6 +116,14 @@ public class LBController : MonoBehaviour
             other.gameObject.SetActive(false);
             gC.lightPoints++;
         } 
+        if (other.gameObject.tag == "BottomBorder"){
+            StartCoroutine(deathSequence());
+        }
+    }
 
+    public IEnumerator deathSequence(){
+        death = 1;
+        yield return new WaitForSeconds(1f);
+        death = 2;
     }
 }

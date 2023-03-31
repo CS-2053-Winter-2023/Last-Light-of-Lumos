@@ -78,6 +78,10 @@ public bool winState;
                 timer.text = "Time: " + i + ":" + currentTime.ToString("#");
             }
         }
+
+        if (lb.death == 2){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     void WinCondition()
