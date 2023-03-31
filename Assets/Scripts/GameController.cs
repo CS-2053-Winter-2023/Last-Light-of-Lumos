@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
 
 public GameObject day, dayFloor;
 public GameObject night, nightFloor;
-public GameObject winMessage, lightIcon, darkIcon;
+public GameObject winMessage, lightIcon, darkIcon, gameScreen, nextButton;
 public int dayOrNight = 0, i = 0, lightPoints, darkPoints, totalLight, totalDark;
 public float currentTime;
 public AudioSource shiftSound, levelMusic;
@@ -26,6 +26,8 @@ public bool winState;
         night.SetActive(false);
         dayFloor.SetActive(true);
         nightFloor.SetActive(false);
+        gameScreen.SetActive(false);
+        nextButton.SetActive(false);
         shiftSound = GetComponent<AudioSource>();
         levelMusic = GetComponent<AudioSource>();
         levelMusic.Play();
@@ -38,7 +40,6 @@ public bool winState;
         darkDisplay.text = "";
         lightDisplay.text = "";
         winState = false;
-
     }
 
     // Update is called once per frame
@@ -86,9 +87,16 @@ public bool winState;
 
     void WinCondition()
     {
+        gameScreen.SetActive(true);
         winState = true;
         winMessage.SetActive(true);
         StartCoroutine(DisplayScore());
+    }
+
+    public void nextLevel(){
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LLOLStage1")){
+            SceneManager.LoadScene("LLOLStage2");
+        }
     }
 
     public IEnumerator DisplayScore()
@@ -99,6 +107,7 @@ public bool winState;
         yield return new WaitForSeconds(1.5f);
         darkDisplay.text = "Dark Gems Collected: " + darkPoints + " / " + totalDark;
         darkIcon.SetActive(true);
+        nextButton.SetActive(true);
     }
 }
 

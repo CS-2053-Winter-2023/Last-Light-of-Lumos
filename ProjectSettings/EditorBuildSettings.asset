@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LLOLStage1.unity
     guid: 2e0d1a79a4bfd254d95351b083faeff0
+  - enabled: 1
+    path: Assets/Scenes/LLOLStage2.unity
+    guid: 839ef9f88ff7468489d90a54ccb27ff6
   m_configObjects: {}
