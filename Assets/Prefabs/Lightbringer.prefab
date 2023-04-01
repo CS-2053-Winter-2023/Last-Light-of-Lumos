@@ -127,6 +127,7 @@ MonoBehaviour:
   speed: 8
   jumpSpeed: 12
   peak: 0
+  distance: 0
   faceRight: 1
   groundCheck: {fileID: 9181036979402369550}
   groundCheckRadius: 0.4
@@ -139,6 +140,7 @@ MonoBehaviour:
   shifted: 0
   win: 0
   death: 0
+  ns: {fileID: 0}
 --- !u!50 &9181036978439029226
 Rigidbody2D:
   serializedVersion: 4
@@ -201,7 +203,12 @@ MonoBehaviour:
   src: {fileID: 0}
   lbJump: {fileID: 8300000, guid: 785b81e4fa457864f9df53da907d3d38, type: 3}
   lbDeath: {fileID: 8300000, guid: 4aa18e35bea2410488d07840360fccde, type: 3}
+  lightPickup: {fileID: 8300000, guid: eb9a9e1e85d765c4d8787279478ec8b5, type: 3}
+  darkPickup: {fileID: 8300000, guid: 972a3600e0673024898e9dbb593f8b08, type: 3}
   lb: {fileID: 9181036978439029220}
+  gc: {fileID: 0}
+  oldPointsL: 0
+  oldPointsD: 0
   playedDeathSound: 0
 --- !u!1 &9181036979402369545
 GameObject:

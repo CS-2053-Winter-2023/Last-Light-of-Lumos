@@ -5,18 +5,22 @@ using UnityEngine;
 public class LBAudioManager : MonoBehaviour
 {
     public AudioSource src;
-    public AudioClip lbJump, lbDeath;
+    public AudioClip lbJump, lbDeath, lightPickup, darkPickup;
     public LBController lb;
+    public GameController gc;
+    public int oldPointsL, oldPointsD;
     public bool playedDeathSound;
 
     void Start(){
         playedDeathSound = false;
+        oldPointsL = 0;
+        oldPointsD = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("up") && lb.jumpState == 0){
+        if ((Input.GetKeyDown("up") || Input.GetKeyDown("w")) && lb.jumpState == 0){
             src.clip = lbJump;
             src.Play();
         }
@@ -26,5 +30,18 @@ public class LBAudioManager : MonoBehaviour
             src.Play();
             playedDeathSound = true;
         }
+        
+        if (oldPointsL < gc.lightPoints){
+            src.clip = lightPickup;
+            src.Play();
+            oldPointsL = gc.lightPoints;
+        }
+
+        if (oldPointsD < gc.darkPoints){
+            src.clip = darkPickup;
+            src.Play();
+            oldPointsD = gc.darkPoints;
+        }
+
     }
 }

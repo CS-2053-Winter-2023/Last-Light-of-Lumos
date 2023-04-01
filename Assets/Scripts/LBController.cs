@@ -10,6 +10,7 @@ public class LBController : MonoBehaviour
     public float speed = 9.0f;
     public float jumpSpeed = 11.0f;
     public float peak;
+    public float distance;
     private Rigidbody2D rb;
     public bool faceRight;
     public Transform groundCheck;
@@ -21,6 +22,7 @@ public class LBController : MonoBehaviour
     public GameController gC;
     public bool shifted, win;
     public int death;
+    public NightshadeScript ns;
 
 
     // Start is called before the first frame update
@@ -40,7 +42,7 @@ public class LBController : MonoBehaviour
     void Update()
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if (win == false){
+        if (win == false && death < 1){
             direction = Input.GetAxis("Horizontal");
             if (direction > 0f || direction < 0f){
                 rb.velocity = new Vector2(direction * speed, rb.velocity.y);
@@ -55,7 +57,7 @@ public class LBController : MonoBehaviour
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
 
-            if (Input.GetKeyDown("up") && isTouchingGround == true){
+            if ((Input.GetKeyDown("up") || Input.GetKeyDown("w")) && isTouchingGround == true){
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
             }
 
@@ -83,6 +85,11 @@ public class LBController : MonoBehaviour
         }
         else{
             rb.velocity = new Vector2(0f,0f);
+        }
+
+        if (ns.attackState == 2){
+            this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
+            StartCoroutine(deathSequence());
         }
 
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));

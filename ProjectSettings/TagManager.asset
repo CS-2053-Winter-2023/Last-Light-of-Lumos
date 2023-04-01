@@ -11,6 +11,7 @@ TagManager:
   - LightGem
   - DarkGem
   - BottomBorder
+  - Enemy
   layers:
   - Default
   - TransparentFX
