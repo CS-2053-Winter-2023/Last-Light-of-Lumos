@@ -93,10 +93,20 @@ public bool winState;
         StartCoroutine(DisplayScore());
     }
 
-    public void nextLevel(){
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("LLOLStage1")){
-            SceneManager.LoadScene("LLOLStage2");
-        }
+    public void levelOnetoTwo(){
+        SceneManager.LoadScene("LLOLStage2");
+    }
+
+    public void levelTwotoThree(){
+        SceneManager.LoadScene("LLOLStage3");
+    }
+
+    public void levelThreetoFour(){
+        SceneManager.LoadScene("LLOLStage4");
+    }
+
+    public void levelFourtoFive(){
+        SceneManager.LoadScene("LLOLStage5");
     }
 
     public IEnumerator DisplayScore()
