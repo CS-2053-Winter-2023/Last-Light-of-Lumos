@@ -124,6 +124,7 @@ public class LBController : MonoBehaviour
             gC.lightPoints++;
         } 
         if (other.gameObject.tag == "BottomBorder"){
+            this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
             StartCoroutine(deathSequence());
         }
     }
