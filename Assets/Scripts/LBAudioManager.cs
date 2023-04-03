@@ -9,7 +9,7 @@ public class LBAudioManager : MonoBehaviour
     public LBController lb;
     public GameController gc;
     public int oldPointsL, oldPointsD;
-    public bool playedDeathSound;
+    private bool playedDeathSound;
 
     void Start(){
         playedDeathSound = false;

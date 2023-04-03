@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 9161721664370291066}
   - component: {fileID: 9161721664370291067}
   - component: {fileID: 1921062119801096108}
+  - component: {fileID: 4233845428139692126}
+  - component: {fileID: 130193555199909809}
   m_Layer: 0
   m_Name: Stalker
   m_TagString: Untagged
@@ -119,6 +121,46 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 8.5, y: 5.43}
-  m_Direction: 0
+  m_Offset: {x: -0.59030694, y: -0.806226}
+  m_Size: {x: 7.42634, y: 2.659106}
+  m_Direction: 1
+--- !u!114 &4233845428139692126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161721664370291060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5bbd8c43534104c8cd5af153400098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gc: {fileID: 0}
+  lb: {fileID: 0}
+  isFacingLeft: 1
+  attackState: 0
+  waitTime1: 0.1
+  waitTime2: 0.1
+  speed: 2
+--- !u!50 &130193555199909809
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161721664370291060}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
