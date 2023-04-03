@@ -22,9 +22,6 @@ public class LBController : MonoBehaviour
     public GameController gC;
     public bool shifted, win;
     public int death;
-    public NightshadeScript ns;
-    public StalkerScript ss;
-
 
     // Start is called before the first frame update
     void Start()
@@ -88,11 +85,6 @@ public class LBController : MonoBehaviour
             rb.velocity = new Vector2(0f,0f);
         }
 
-        if (ns.attackState == 2 || ss.attackState==1){
-            this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
-            StartCoroutine(deathSequence());
-        }
-
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
         anim.SetBool("OnGround", isTouchingGround);
         anim.SetInteger("IsDark",  gC.dayOrNight);            
@@ -125,15 +117,18 @@ public class LBController : MonoBehaviour
             gC.lightPoints++;
         } 
         if (other.gameObject.tag == "BottomBorder"){
-            this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
-            StartCoroutine(deathSequence());
+            deathNotify();
         }
     }
 
     public IEnumerator deathSequence(){
+        this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
         death = 1;
         yield return new WaitForSeconds(1f);
         death = 2;
-        //ss.attackState=0;
+    }
+
+    public void deathNotify(){
+        StartCoroutine(deathSequence());
     }
 }

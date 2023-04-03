@@ -33,6 +33,7 @@ public class NightshadeScript : MonoBehaviour
     public IEnumerator attackSequence(){
         attackState = 1;
         yield return new WaitForSeconds(waitTime1);
+        lb.deathNotify();
         attackState = 2;
         yield return new WaitForSeconds(waitTime2);
         attackState = 0;

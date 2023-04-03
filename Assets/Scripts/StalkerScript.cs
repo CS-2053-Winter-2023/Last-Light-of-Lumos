@@ -5,9 +5,11 @@ using UnityEngine;
 public class StalkerScript : MonoBehaviour
 {   
     public GameController gc;
+    public LBController lb;
     private Animator anim;
     public int attackState;
-    public float waitTime1;
+    public float waitTime1, waitTime2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,18 +25,18 @@ public class StalkerScript : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if (other.gameObject.tag == "Player"&&gc.dayOrNight==1){
+        if (other.gameObject.tag == "Player" && gc.dayOrNight == 1){
             StartCoroutine(attackSequence());
         }
 
     }
 
     public IEnumerator attackSequence(){
-        attackState=1;
-
+        attackState = 1;
         yield return new WaitForSeconds(waitTime1);
-
-        attackState=0;
+        lb.deathNotify();
+        yield return new WaitForSeconds(waitTime2);
+        attackState = 0;
     }
 
 }
