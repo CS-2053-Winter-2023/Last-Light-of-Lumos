@@ -23,6 +23,7 @@ public class LBController : MonoBehaviour
     public bool shifted, win;
     public int death;
     public NightshadeScript ns;
+    public StalkerScript ss;
 
 
     // Start is called before the first frame update
@@ -87,7 +88,7 @@ public class LBController : MonoBehaviour
             rb.velocity = new Vector2(0f,0f);
         }
 
-        if (ns.attackState == 2){
+        if (ns.attackState == 2 || ss.attackState==1){
             this.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
             StartCoroutine(deathSequence());
         }
@@ -133,5 +134,6 @@ public class LBController : MonoBehaviour
         death = 1;
         yield return new WaitForSeconds(1f);
         death = 2;
+        //ss.attackState=0;
     }
 }
