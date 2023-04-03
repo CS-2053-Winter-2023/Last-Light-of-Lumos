@@ -2537,8 +2537,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 189584420}
+  lb: {fileID: 84098630}
   attackState: 0
   waitTime1: 0.1
+  waitTime2: 0.1
 --- !u!1 &570868756
 GameObject:
   m_ObjectHideFlags: 0

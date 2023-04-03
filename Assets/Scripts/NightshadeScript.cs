@@ -34,6 +34,7 @@ public class NightshadeScript : MonoBehaviour
         attackState = 1;
         yield return new WaitForSeconds(waitTime1);
         attackState = 2;
+        lb.playerDeath();
         yield return new WaitForSeconds(waitTime2);
         attackState = 0;
     }
