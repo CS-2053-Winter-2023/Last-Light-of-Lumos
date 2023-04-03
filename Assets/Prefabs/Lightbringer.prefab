@@ -125,9 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 0
   speed: 8
-  jumpSpeed: 12
-  peak: 0
-  distance: 0
+  jumpSpeed: 7
   faceRight: 1
   groundCheck: {fileID: 9181036979402369550}
   groundCheckRadius: 0.4
@@ -140,7 +138,9 @@ MonoBehaviour:
   shifted: 0
   win: 0
   death: 0
-  ns: {fileID: 0}
+  jumpTimeCounter: 3
+  jumpTime: 0.5
+  isJumping: 0
 --- !u!50 &9181036978439029226
 Rigidbody2D:
   serializedVersion: 4
@@ -209,7 +209,6 @@ MonoBehaviour:
   gc: {fileID: 0}
   oldPointsL: 0
   oldPointsD: 0
-  playedDeathSound: 0
 --- !u!1 &9181036979402369545
 GameObject:
   m_ObjectHideFlags: 0

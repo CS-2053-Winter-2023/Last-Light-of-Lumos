@@ -9,8 +9,6 @@ public class LBController : MonoBehaviour
     public float direction;
     public float speed = 9.0f;
     public float jumpSpeed = 11.0f;
-    public float peak;
-    public float distance;
     private Rigidbody2D rb;
     public bool faceRight;
     public Transform groundCheck;
@@ -22,6 +20,9 @@ public class LBController : MonoBehaviour
     public GameController gC;
     public bool shifted, win;
     public int death;
+    public float jumpTimeCounter;
+    public float jumpTime;
+    public bool isJumping;
 
 
     // Start is called before the first frame update
@@ -29,7 +30,6 @@ public class LBController : MonoBehaviour
     {
         anim = GetComponent<Animator>(); 
         rb = GetComponent<Rigidbody2D>();
-        peak = transform.position.y + 4;
         faceRight = true;
         jumpState = 0;
         isTouchingWall = false;
@@ -57,7 +57,21 @@ public class LBController : MonoBehaviour
             }
 
             if ((Input.GetKeyDown("up") || Input.GetKeyDown("w")) && isTouchingGround == true){
-                rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+                rb.velocity = new Vector2(rb.velocity.x, 1 * jumpSpeed);
+                isJumping = true;
+                jumpTimeCounter = jumpTime;
+            }
+            if ((Input.GetKey("up") || Input.GetKey("w")) && isJumping == true){
+                if (jumpTimeCounter > 0){
+                    rb.velocity = new Vector2(rb.velocity.x, 1 * jumpSpeed);
+                    jumpTimeCounter -= Time.deltaTime;
+                }
+                else{
+                    isJumping = false;
+                }
+            }
+            if(Input.GetKeyUp(KeyCode.Space)){
+                isJumping = false;
             }
 
             if (isTouchingGround){
