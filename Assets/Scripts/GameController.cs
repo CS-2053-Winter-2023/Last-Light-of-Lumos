@@ -11,13 +11,13 @@ public class GameController : MonoBehaviour
 
 public GameObject day, dayFloor;
 public GameObject night, nightFloor;
-public GameObject winMessage, lightIcon, darkIcon, gameScreen, nextButton;
+public GameObject lightIcon, darkIcon, gameScreen, nextButton, resumeButton, menuButton;
 public int dayOrNight = 0, i = 0, lightPoints, darkPoints, totalLight, totalDark;
 public float currentTime;
 public AudioSource shiftSound, levelMusic;
 public LBController lb;
-public TextMeshProUGUI timer, darkDisplay, lightDisplay;
-public bool winState;
+public TextMeshProUGUI timer, darkDisplay, lightDisplay, message;
+public bool winState, isPaused;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,6 @@ public bool winState;
         shiftSound = GetComponent<AudioSource>();
         levelMusic = GetComponent<AudioSource>();
         levelMusic.Play();
-        winMessage.SetActive(false);
         lightIcon.SetActive(false);
         darkIcon.SetActive(false);
         currentTime = 0f;
@@ -39,13 +38,17 @@ public bool winState;
         lightPoints = 0;
         darkDisplay.text = "";
         lightDisplay.text = "";
+        message.text = "";
         winState = false;
+        isPaused = false;
+        resumeButton.SetActive(false);
+        menuButton.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") && winState == false){
+        if (Input.GetKeyDown("space") && winState == false && isPaused == false){
             shiftSound.Play();
             if (dayOrNight == 0){
                 day.SetActive(false);
@@ -83,14 +86,36 @@ public bool winState;
         if (lb.death == 2){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if(Input.GetKeyDown(KeyCode.Return) && winState == false){
+            isPaused = true;
+            gameScreen.SetActive(true);
+            message.text = "Paused";
+            resumeButton.SetActive(true);
+            menuButton.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 
     void WinCondition()
     {
         gameScreen.SetActive(true);
         winState = true;
-        winMessage.SetActive(true);
+        message.text = "Temple Found";
         StartCoroutine(DisplayScore());
+    }
+
+    public void resumeGame(){
+        isPaused = false;
+        gameScreen.SetActive(false);
+        message.text = "";            
+        resumeButton.SetActive(false);
+        menuButton.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void backToMenu(){
+        SceneManager.LoadScene("Menu");
     }
 
     public void levelOnetoTwo(){

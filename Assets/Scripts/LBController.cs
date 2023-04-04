@@ -41,7 +41,7 @@ public class LBController : MonoBehaviour
     void Update()
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        if (win == false && death < 1){
+        if (win == false && death < 1 && gC.isPaused == false){
             direction = Input.GetAxis("Horizontal");
             if (direction > 0f || direction < 0f){
                 rb.velocity = new Vector2(direction * speed, rb.velocity.y);
@@ -70,7 +70,7 @@ public class LBController : MonoBehaviour
                     isJumping = false;
                 }
             }
-            if(Input.GetKeyUp(KeyCode.Space)){
+            if(Input.GetKeyUp("up") || Input.GetKeyUp("w")){
                 isJumping = false;
             }
 
