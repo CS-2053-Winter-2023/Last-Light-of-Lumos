@@ -23,6 +23,7 @@ private static int totalPoints = 0;
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         day.SetActive(true);
         night.SetActive(false);
         dayFloor.SetActive(true);
@@ -118,6 +119,7 @@ private static int totalPoints = 0;
     }
 
     public void backToMenu(){
+        totalPoints = 0;
         SceneManager.LoadScene("Menu");
     }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9063517866696263871}
   - component: {fileID: 9063517866696263857}
   - component: {fileID: 9063517866696263858}
+  - component: {fileID: 9088397321629162471}
   m_Layer: 0
   m_Name: DarkPickup
   m_TagString: DarkGem
@@ -111,3 +112,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2238235, y: 1.6481572}
   m_EdgeRadius: 0
+--- !u!114 &9088397321629162471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063517866696263870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f5f246d772f7d4396f1e71ef27daf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

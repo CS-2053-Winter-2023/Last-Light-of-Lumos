@@ -435,7 +435,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 954886831d882784ba25a90ea2b4b7d7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -860,7 +860,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1553334128}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: LoadGame
+        m_MethodName: LoadText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

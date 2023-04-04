@@ -16,6 +16,7 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         title.SetActive(true);
         menuMusic = GetComponent<AudioSource>();
         menuMusic.Play();
@@ -24,19 +25,18 @@ public class MenuController : MonoBehaviour
         start.SetActive(true);
         end.SetActive(true);
         next.SetActive(false);
-
     }
 
-    public void LoadGame(){
+    public void LoadText(){
         gameState = 1;
         t = 0;
         start.SetActive(false);
         end.SetActive(false);
         next.SetActive(true);
-        if (title.GetComponent<SpriteRenderer>().color == new Color(1f,1f,1f,0f)){
-            gameState = 0;
-            SceneManager.LoadScene("LLOLStage1");
-        }
+    }
+
+    public void LoadGame(){
+        SceneManager.LoadScene("LLOLStage1");
     }
 
     public void QuitGame(){
@@ -44,6 +44,10 @@ public class MenuController : MonoBehaviour
     }
 
     void Update(){
+        if (gameState == 0){
+            title.GetComponent<SpriteRenderer>().color = Color.Lerp(color1, Color.white, t);
+            t += Time.deltaTime / duration;
+        }
         if (gameState != 0){
             title.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, color1, t);
             background.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.black, t);
