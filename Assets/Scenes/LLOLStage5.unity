@@ -4804,6 +4804,10 @@ PrefabInstance:
       propertyPath: m_Direction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4233845428139692126, guid: 37e4996f53483a042a6f7f9a10f1d34b, type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 844224003}
     - target: {fileID: 9161721664370291060, guid: 37e4996f53483a042a6f7f9a10f1d34b, type: 3}
       propertyPath: m_Name
       value: Stalker
@@ -4858,6 +4862,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e4996f53483a042a6f7f9a10f1d34b, type: 3}
+--- !u!82 &844224003 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6528459836245251055, guid: 37e4996f53483a042a6f7f9a10f1d34b, type: 3}
+  m_PrefabInstance: {fileID: 844224002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &862190781
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,8 @@ public float currentTime;
 public AudioSource shiftSound, levelMusic;
 public LBController lb;
 public TextMeshProUGUI timer, darkDisplay, lightDisplay, message;
-public bool winState, isPaused;
+public bool winState, isPaused, addedScore;
+private static int totalPoints = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,7 @@ public bool winState, isPaused;
         message.text = "";
         winState = false;
         isPaused = false;
+        addedScore = false;
         resumeButton.SetActive(false);
         menuButton.SetActive(false);
     }
@@ -102,6 +104,7 @@ public bool winState, isPaused;
         gameScreen.SetActive(true);
         winState = true;
         message.text = "Temple Found";
+        Debug.Log(totalPoints);
         StartCoroutine(DisplayScore());
     }
 
@@ -143,6 +146,11 @@ public bool winState, isPaused;
         darkDisplay.text = "Dark Gems Collected: " + darkPoints + " / " + totalDark;
         darkIcon.SetActive(true);
         nextButton.SetActive(true);
+        if (addedScore == false){
+            totalPoints += lightPoints;
+            totalPoints += darkPoints;
+            addedScore = true;
+        }
     }
 }
 

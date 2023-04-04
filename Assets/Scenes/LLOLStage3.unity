@@ -3740,7 +3740,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1455994091}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: nextLevel
+        m_MethodName: levelThreetoFour
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4793,7 +4793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3302976310335552070, guid: 4a26b99f21a71bd42a0bf9a8b4b2fa54, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 52.3
+      value: 52.8
       objectReference: {fileID: 0}
     - target: {fileID: 3302976310335552070, guid: 4a26b99f21a71bd42a0bf9a8b4b2fa54, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5360,6 +5360,7 @@ MonoBehaviour:
   message: {fileID: 794235955}
   winState: 0
   isPaused: 0
+  addedScore: 0
 --- !u!4 &1455994092
 Transform:
   m_ObjectHideFlags: 0

@@ -3902,7 +3902,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1235648621}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: levelOnetoTwo
+        m_MethodName: levelFourtoFive
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9757,6 +9757,18 @@ PrefabInstance:
       propertyPath: m_Direction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4233845428139692126, guid: 37e4996f53483a042a6f7f9a10f1d34b, type: 3}
+      propertyPath: gc
+      value: 
+      objectReference: {fileID: 1235648621}
+    - target: {fileID: 4233845428139692126, guid: 37e4996f53483a042a6f7f9a10f1d34b, type: 3}
+      propertyPath: lb
+      value: 
+      objectReference: {fileID: 1603270256}
+    - target: {fileID: 4233845428139692126, guid: 37e4996f53483a042a6f7f9a10f1d34b, type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 2093655234}
     - target: {fileID: 9161721664370291060, guid: 37e4996f53483a042a6f7f9a10f1d34b, type: 3}
       propertyPath: m_Name
       value: Stalker
@@ -9811,3 +9823,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37e4996f53483a042a6f7f9a10f1d34b, type: 3}
+--- !u!82 &2093655234 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6528459836245251055, guid: 37e4996f53483a042a6f7f9a10f1d34b, type: 3}
+  m_PrefabInstance: {fileID: 2093655233}
+  m_PrefabAsset: {fileID: 0}
