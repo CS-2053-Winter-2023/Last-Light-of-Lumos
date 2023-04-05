@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     public AudioSource menuMusic;
-    public GameObject title, start, end, next, background;
+    public GameObject title, start, end, next, background, controls, controlButton;
     public int gameState;
     public float duration;
     float t;
@@ -24,7 +24,9 @@ public class MenuController : MonoBehaviour
         t = 0;
         start.SetActive(true);
         end.SetActive(true);
+        controlButton.SetActive(true);
         next.SetActive(false);
+        controls.SetActive(false);
     }
 
     public void LoadText(){
@@ -33,6 +35,8 @@ public class MenuController : MonoBehaviour
         start.SetActive(false);
         end.SetActive(false);
         next.SetActive(true);
+        controlButton.SetActive(false);
+        controls.SetActive(false);
     }
 
     public void LoadGame(){
@@ -41,6 +45,17 @@ public class MenuController : MonoBehaviour
 
     public void QuitGame(){
         Application.Quit();
+    }
+
+    public void showControls(){
+        if (controls.activeInHierarchy == false){
+            controls.SetActive(true);
+            title.SetActive(false);
+        }
+        else{
+            controls.SetActive(false);
+            title.SetActive(true);
+        }
     }
 
     void Update(){

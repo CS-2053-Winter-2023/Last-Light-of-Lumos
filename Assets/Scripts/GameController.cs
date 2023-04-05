@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
 
 public GameObject day, dayFloor;
 public GameObject night, nightFloor;
-public GameObject lightIcon, darkIcon, gameScreen, nextButton, resumeButton, menuButton;
+public GameObject lightIcon, darkIcon, gameScreen, nextButton, resumeButton, menuButton, controls;
 public int dayOrNight = 0, i = 0, lightPoints, darkPoints, totalLight, totalDark;
 public float currentTime;
 public AudioSource shiftSound, levelMusic;
@@ -46,6 +46,7 @@ private static int totalPoints = 0;
         addedScore = false;
         resumeButton.SetActive(false);
         menuButton.SetActive(false);
+        controls.SetActive(false);
     }
 
     // Update is called once per frame
@@ -90,13 +91,14 @@ private static int totalPoints = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if(Input.GetKeyDown(KeyCode.Return) && winState == false){
+        if(Input.GetKeyDown(KeyCode.Escape) && winState == false){
             isPaused = true;
             gameScreen.SetActive(true);
             message.text = "Paused";
             resumeButton.SetActive(true);
             menuButton.SetActive(true);
             Time.timeScale = 0f;
+            controls.SetActive(true);
         }
     }
 
@@ -116,6 +118,7 @@ private static int totalPoints = 0;
         resumeButton.SetActive(false);
         menuButton.SetActive(false);
         Time.timeScale = 1f;
+        controls.SetActive(false);
     }
 
     public void backToMenu(){
