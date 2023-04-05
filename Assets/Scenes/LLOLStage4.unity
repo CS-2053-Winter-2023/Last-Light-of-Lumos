@@ -775,7 +775,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1235648621}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: backToMenu
         m_Mode: 1
@@ -8010,7 +8010,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1235648621}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: resumeGame
         m_Mode: 1
