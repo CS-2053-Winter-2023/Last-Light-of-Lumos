@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
-    public AudioSource menuMusic;
+    public AudioSource menuMusic, selectionSound;
     public GameObject title, start, end, next, background, controls, controlButton;
     public int gameState;
     public float duration;

@@ -1744,6 +1744,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8756793411294566865, guid: 9855ed3c9f2d5bc42921ec4a41f24226, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7688679
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756793411294566865, guid: 9855ed3c9f2d5bc42921ec4a41f24226, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9899508
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756793411294566865, guid: 9855ed3c9f2d5bc42921ec4a41f24226, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8756793411294566865, guid: 9855ed3c9f2d5bc42921ec4a41f24226, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -4198,6 +4210,18 @@ PrefabInstance:
     - target: {fileID: 5678549684624352108, guid: 4479a38283e61884e9619464637ba740, type: 3}
       propertyPath: m_Name
       value: NightBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678549684624352109, guid: 4479a38283e61884e9619464637ba740, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8670472
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678549684624352109, guid: 4479a38283e61884e9619464637ba740, type: 3}
+      propertyPath: m_Color.g
+      value: 0.038848326
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678549684624352109, guid: 4479a38283e61884e9619464637ba740, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9150943
       objectReference: {fileID: 0}
     - target: {fileID: 5678549684624352110, guid: 4479a38283e61884e9619464637ba740, type: 3}
       propertyPath: m_RootOrder
