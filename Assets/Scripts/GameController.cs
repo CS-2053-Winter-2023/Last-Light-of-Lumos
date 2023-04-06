@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
@@ -12,13 +11,16 @@ public class GameController : MonoBehaviour
 public GameObject day, dayFloor;
 public GameObject night, nightFloor;
 public GameObject lightIcon, darkIcon, gameScreen, nextButton, resumeButton, menuButton, controls;
+public Image goodEndScreen, badEndScreen;
 public int dayOrNight = 0, i = 0, lightPoints, darkPoints, totalLight, totalDark;
-public float currentTime;
-public AudioSource shiftSound, levelMusic;
+public float currentTime, t;
+public AudioSource shiftSound;
 public LBController lb;
 public TextMeshProUGUI timer, darkDisplay, lightDisplay, message;
 public bool winState, isPaused, addedScore;
 private static int totalPoints = 0;
+public int endingVal = 0;
+public EndingScript endOfGame;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +33,6 @@ private static int totalPoints = 0;
         gameScreen.SetActive(false);
         nextButton.SetActive(false);
         shiftSound = GetComponent<AudioSource>();
-        levelMusic = GetComponent<AudioSource>();
-        levelMusic.Play();
         lightIcon.SetActive(false);
         darkIcon.SetActive(false);
         currentTime = 0f;
@@ -47,6 +47,7 @@ private static int totalPoints = 0;
         resumeButton.SetActive(false);
         menuButton.SetActive(false);
         controls.SetActive(false);
+        t = 0;
     }
 
     // Update is called once per frame
@@ -71,7 +72,12 @@ private static int totalPoints = 0;
         }
 
         if (lb.win == true){
-            WinCondition();
+            if (endingVal == 0){
+                gameScreen.SetActive(true);
+                winState = true;
+                message.text = "Temple Found";
+                StartCoroutine(DisplayScore());
+            }
         }
         else{
             currentTime += Time.deltaTime;
@@ -100,15 +106,15 @@ private static int totalPoints = 0;
             Time.timeScale = 0f;
             controls.SetActive(true);
         }
-    }
 
-    void WinCondition()
-    {
-        gameScreen.SetActive(true);
-        winState = true;
-        message.text = "Temple Found";
-        Debug.Log(totalPoints);
-        StartCoroutine(DisplayScore());
+        if (endingVal == 1){
+            goodEndScreen.color = Color.Lerp(new Color (1f,1f,1f,0f), Color.white, t);
+            t += Time.deltaTime / 3;
+        }
+        else if (endingVal == -1){
+            badEndScreen.color = Color.Lerp(new Color (1f,1f,1f,0f), Color.black, t);
+            t += Time.deltaTime / 3;
+        }
     }
 
     public void resumeGame(){
@@ -140,6 +146,21 @@ private static int totalPoints = 0;
 
     public void levelFourtoFive(){
         SceneManager.LoadScene("LLOLStage5");
+    }
+
+    public void toEndTransition(){
+        if (endingVal == 0){
+            if (totalPoints / 100 > 60){
+                endingVal = 1;
+            }
+            else{
+                endingVal = -1;
+            }
+            endOfGame.goodOrBad = endingVal;
+        }
+        else{
+            SceneManager.LoadScene("Ending");
+        }
     }
 
     public IEnumerator DisplayScore()
