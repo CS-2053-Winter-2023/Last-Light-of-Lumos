@@ -10,6 +10,7 @@ public class LBController : MonoBehaviour
     public float speed = 9.0f;
     public float jumpSpeed = 11.0f;
     private Rigidbody2D rb;
+    private TrailRenderer tr;
     public bool faceRight;
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -24,10 +25,17 @@ public class LBController : MonoBehaviour
     public float jumpTime;
     public bool isJumping;
 
+    public float dashSpeed;
+    private float dashTime;
+    public float startDashTime;
+    private int dashDir;
+    private float backUpGScale;
+    public float driftFade;
+
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         anim = GetComponent<Animator>(); 
         rb = GetComponent<Rigidbody2D>();
         faceRight = true;
@@ -35,6 +43,10 @@ public class LBController : MonoBehaviour
         isTouchingWall = false;
         win = false;
         death = 0;
+        dashTime= startDashTime;
+        dashDir=0;
+        tr = GetComponent<TrailRenderer>();
+        backUpGScale= rb.gravityScale;
     }
 
     // Update is called once per frame
@@ -70,6 +82,45 @@ public class LBController : MonoBehaviour
                     isJumping = false;
                 }
             }
+        //Dash code (only execute if day)
+        if(gC.dayOrNight==0){
+            if(dashDir==0){
+                if(Input.GetKeyDown("z")){
+                     dashDir= (faceRight)?1: -1;
+                     tr.emitting= true;
+                }
+
+            }
+            else{
+                
+                if(dashTime<=0){
+                    dashDir=0;
+                    dashTime=startDashTime;
+                    rb.velocity = Vector2.zero;
+                    tr.emitting= false;
+                }
+                else{
+                    dashTime-=Time.deltaTime;
+                    rb.velocity = new Vector2(1*dashDir*dashSpeed, rb.velocity.y);
+                }
+            }
+           
+        }
+
+        //hover code
+        if(gC.dayOrNight==1){
+            if(Input.GetKey("z")){
+           
+             rb.gravityScale=0;
+             rb.velocity= new Vector2(rb.velocity.x, -driftFade);
+
+
+            }
+            if(Input.GetKeyUp("z")){
+             rb.gravityScale= backUpGScale;
+            }
+        }
+
             if(Input.GetKeyUp("up") || Input.GetKeyUp("w")){
                 isJumping = false;
             }
