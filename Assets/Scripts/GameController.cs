@@ -22,6 +22,7 @@ private static int totalPoints = 0;
 public int endingVal = 0;
 public EndingScript endOfGame;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -150,13 +151,14 @@ public EndingScript endOfGame;
 
     public void toEndTransition(){
         if (endingVal == 0){
-            if (totalPoints / 100 > 60){
+            if (totalPoints / 100 > 0.70){
                 endingVal = 1;
             }
             else{
                 endingVal = -1;
             }
             endOfGame.goodOrBad = endingVal;
+			
         }
         else{
             SceneManager.LoadScene("Ending");
