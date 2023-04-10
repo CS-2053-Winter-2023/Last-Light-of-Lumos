@@ -10131,7 +10131,7 @@ PrefabInstance:
       objectReference: {fileID: 562284901}
     - target: {fileID: 9181036978439029220, guid: 83c5ec44be4ed704186ad2f21640363b, type: 3}
       propertyPath: dashSpeed
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9181036978439029220, guid: 83c5ec44be4ed704186ad2f21640363b, type: 3}
       propertyPath: driftFade

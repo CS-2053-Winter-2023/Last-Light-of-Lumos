@@ -31,6 +31,7 @@ public class LBController : MonoBehaviour
     private int dashDir;
     private float backUpGScale;
     public float driftFade;
+    public int canDash;
 
 
     // Start is called before the first frame update
@@ -47,12 +48,16 @@ public class LBController : MonoBehaviour
         dashDir=0;
         tr = GetComponent<TrailRenderer>();
         backUpGScale= rb.gravityScale;
+        canDash = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        if (isTouchingGround == true){
+            canDash = 1;
+        }
         if (win == false && death < 1 && gC.isPaused == false){
             direction = Input.GetAxis("Horizontal");
             if (direction > 0f || direction < 0f){
@@ -83,16 +88,16 @@ public class LBController : MonoBehaviour
                 }
             }
         //Dash code (only execute if day)
-        if(gC.dayOrNight==0){
+        if(gC.dayOrNight == 0){
             if(dashDir==0){
-                if(Input.GetKeyDown("z")){
+                if(Input.GetKeyDown("z") && canDash == 1){
                      dashDir= (faceRight)?1: -1;
                      tr.emitting= true;
+                     canDash--;
                 }
 
             }
             else{
-                
                 if(dashTime<=0){
                     dashDir=0;
                     dashTime=startDashTime;
@@ -104,7 +109,6 @@ public class LBController : MonoBehaviour
                     rb.velocity = new Vector2(1*dashDir*dashSpeed, rb.velocity.y);
                 }
             }
-           
         }
 
         //hover code
