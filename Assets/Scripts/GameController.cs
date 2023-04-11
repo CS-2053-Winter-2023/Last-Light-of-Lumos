@@ -48,6 +48,7 @@ public EndingScript endOfGame;
         menuButton.SetActive(false);
         controls.SetActive(false);
         t = 0;
+        Debug.Log(totalPoints);
     }
 
     // Update is called once per frame
@@ -177,6 +178,7 @@ public EndingScript endOfGame;
             totalPoints += darkPoints;
             addedScore = true;
         }
+        Debug.Log(totalPoints);
     }
 }
 
