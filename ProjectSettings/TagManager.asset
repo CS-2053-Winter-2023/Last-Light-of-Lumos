@@ -13,6 +13,7 @@ TagManager:
   - BottomBorder
   - Enemy
   - Edge
+  - Bullet
   layers:
   - Default
   - TransparentFX

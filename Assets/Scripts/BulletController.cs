@@ -5,7 +5,6 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {   
     Vector3 velocity;
-
     SpriteRenderer rend;
 
     // Start is called before the first frame update
@@ -28,8 +27,6 @@ public class BulletController : MonoBehaviour
         if(transform.position.y>topBorder || transform.position.y<bottomBorder){
             Destroy(gameObject);
         }
-
-        
     }
 
     public void InitPosition(Vector3 p, Vector3 v){
@@ -40,6 +37,5 @@ public class BulletController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other){
         Destroy(gameObject);
-        //kill player?
     }
 }
