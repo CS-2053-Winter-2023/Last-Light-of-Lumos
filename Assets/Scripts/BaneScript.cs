@@ -22,7 +22,7 @@ public class BaneScript : MonoBehaviour
     {   
         if (lbS.death == 0){
             float dist= Vector3.Distance(transform.position, lbS.transform.position);
-            if(dist<22 && canFire){
+            if(dist<20 && canFire){
                 shootSound.Play();
                 GameObject b= Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, 180));
                 Vector3 dirVec= transform.position- lbS.transform.position;

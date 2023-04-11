@@ -31,11 +31,13 @@ public class BulletController : MonoBehaviour
 
     public void InitPosition(Vector3 p, Vector3 v){
 
-        transform.position= p;
-        velocity= v;
+        transform.position = p;
+        velocity = v * 2/3;
     }
 
     public void OnTriggerEnter2D(Collider2D other){
-        Destroy(gameObject);
+        if (other.tag != "DarkGem" || other.tag != "DarkGem"){
+            Destroy(gameObject);
+        }
     }
 }

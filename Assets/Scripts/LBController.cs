@@ -62,7 +62,7 @@ public class LBController : MonoBehaviour
         if (isTouchingGround == true){
             canDash = 1;
             isFloating = false;
-            floatDuration = 100;
+            floatDuration = 150;
         }
         if (win == false && death < 1 && gC.isPaused == false){
             direction = Input.GetAxis("Horizontal");
@@ -135,7 +135,6 @@ public class LBController : MonoBehaviour
             if(Input.GetKeyUp("z") || Input.GetKeyUp("m")){
                 rb.gravityScale= backUpGScale;
                 isFloating = false;
-                floatDuration = 0;
             }
 
         }
