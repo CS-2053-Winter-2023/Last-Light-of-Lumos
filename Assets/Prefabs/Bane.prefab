@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4378563551665659253}
   - component: {fileID: 4378563551665659254}
   - component: {fileID: 4378563551665659255}
+  - component: {fileID: 4856230316646958113}
   m_Layer: 0
   m_Name: Bane
   m_TagString: Untagged
@@ -105,3 +106,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4856230316646958113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378563551665659248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fcb4218c37ee5f42a5b6efe86b305bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lbS: {fileID: 0}
+  lb: {fileID: 0}
+  bullet: {fileID: 0}
+  reloadTime: 0
