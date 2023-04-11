@@ -32,6 +32,7 @@ public class LBController : MonoBehaviour
     private float backUpGScale;
     public float driftFade;
     public int canDash;
+    public bool isFloating;
 
 
     // Start is called before the first frame update
@@ -47,8 +48,9 @@ public class LBController : MonoBehaviour
         dashTime= startDashTime;
         dashDir=0;
         tr = GetComponent<TrailRenderer>();
-        backUpGScale= rb.gravityScale;
+        backUpGScale = 1.05f;
         canDash = 1;
+        isFloating = false;
     }
 
     // Update is called once per frame
@@ -57,6 +59,7 @@ public class LBController : MonoBehaviour
         isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         if (isTouchingGround == true){
             canDash = 1;
+            isFloating = false;
         }
         if (win == false && death < 1 && gC.isPaused == false){
             direction = Input.GetAxis("Horizontal");
@@ -90,7 +93,7 @@ public class LBController : MonoBehaviour
         //Dash code (only execute if day)
         if(gC.dayOrNight == 0){
             if(dashDir==0){
-                if(Input.GetKeyDown("z") && canDash == 1){
+                if((Input.GetKeyDown("z") || Input.GetKeyDown("m")) && canDash == 1){
                      dashDir= (faceRight)?1: -1;
                      tr.emitting= true;
                      canDash--;
@@ -113,15 +116,14 @@ public class LBController : MonoBehaviour
 
         //hover code
         if(gC.dayOrNight==1){
-            if(Input.GetKey("z")){
-           
-             rb.gravityScale=0;
-             rb.velocity= new Vector2(rb.velocity.x, -driftFade);
-
-
+            if((Input.GetKeyDown("z") || Input.GetKeyDown("m")) && isTouchingGround == false){
+                rb.gravityScale=0;
+                rb.velocity= new Vector2(rb.velocity.x, -driftFade);
+                isFloating = true;
             }
-            if(Input.GetKeyUp("z")){
-             rb.gravityScale= backUpGScale;
+            if(Input.GetKeyUp("z") || Input.GetKeyUp("m")){
+                rb.gravityScale= backUpGScale;
+                isFloating = false;
             }
         }
 

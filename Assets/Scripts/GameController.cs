@@ -53,7 +53,7 @@ public EndingScript endOfGame;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") && winState == false && isPaused == false){
+        if (Input.GetKeyDown("space") && winState == false && isPaused == false && lb.isFloating == false){
             shiftSound.Play();
             if (dayOrNight == 0){
                 day.SetActive(false);
