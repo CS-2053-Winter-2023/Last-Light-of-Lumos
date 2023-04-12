@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class MenuController : MonoBehaviour
     public float duration;
     float t;
     Color color1 = new Color(1f,1f,1f,0f);
+	public TextMeshProUGUI beginningText;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,9 @@ public class MenuController : MonoBehaviour
         next.SetActive(false);
         controls.SetActive(false);
         credits.SetActive(false);
+		
+		beginningText.enabled = false;
+		
     }
 
     public void LoadText(){
@@ -88,6 +93,9 @@ public class MenuController : MonoBehaviour
             title.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, color1, t);
             background.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.black, t);
             t += Time.deltaTime / duration;
+			
+			beginningText.enabled = true;
+			
         }
 
     }
