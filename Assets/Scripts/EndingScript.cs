@@ -7,7 +7,7 @@ using TMPro;
 
 public class EndingScript : MonoBehaviour
 {
-    public int goodOrBad = 0;
+    public int goodOrBad;
     public GameObject goodEndScreen, badEndScreen;
 	public TextMeshProUGUI badEndingText, goodEndingText;
 
