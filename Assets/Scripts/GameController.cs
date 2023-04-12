@@ -48,7 +48,6 @@ public EndingScript endOfGame;
         menuButton.SetActive(false);
         controls.SetActive(false);
         t = 0;
-        Debug.Log(totalPoints);
     }
 
     // Update is called once per frame
@@ -77,6 +76,12 @@ public EndingScript endOfGame;
                 gameScreen.SetActive(true);
                 winState = true;
                 message.text = "Temple Found";
+                if (addedScore == false){
+                    totalPoints += lightPoints;
+                    totalPoints += darkPoints;
+                    addedScore = true;
+                    Debug.Log(totalPoints);
+                }
                 StartCoroutine(DisplayScore());
             }
         }
@@ -151,7 +156,7 @@ public EndingScript endOfGame;
 
     public void toEndTransition(){
         if (endingVal == 0){
-            if (totalPoints / 100 > 60){
+            if (totalPoints > 60){
                 endingVal = 1;
             }
             else{
@@ -173,12 +178,6 @@ public EndingScript endOfGame;
         darkDisplay.text = "Dark Gems Collected: " + darkPoints + " / " + totalDark;
         darkIcon.SetActive(true);
         nextButton.SetActive(true);
-        if (addedScore == false){
-            totalPoints += lightPoints;
-            totalPoints += darkPoints;
-            addedScore = true;
-        }
-        Debug.Log(totalPoints);
     }
 }
 
