@@ -16,45 +16,64 @@ public int dayOrNight = 0, i = 0, lightPoints, darkPoints, totalLight, totalDark
 public float currentTime, t;
 public AudioSource shiftSound;
 public LBController lb;
-public TextMeshProUGUI timer, darkDisplay, lightDisplay, message;
+public TextMeshProUGUI timer, darkDisplay, lightDisplay, message, badEndingText, goodEndingText, score;
 public bool winState, isPaused, addedScore;
 private static int totalPoints = 0;
-public int endingVal = 0;
-public EndingScript endOfGame;
-
+public int endingVal;
 
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1;
-        day.SetActive(true);
-        night.SetActive(false);
-        dayFloor.SetActive(true);
-        nightFloor.SetActive(false);
-        gameScreen.SetActive(false);
-        nextButton.SetActive(false);
-        shiftSound = GetComponent<AudioSource>();
-        lightIcon.SetActive(false);
-        darkIcon.SetActive(false);
-        currentTime = 0f;
-        darkPoints = 0;
-        lightPoints = 0;
-        darkDisplay.text = "";
-        lightDisplay.text = "";
-        message.text = "";
-        winState = false;
-        isPaused = false;
-        addedScore = false;
-        resumeButton.SetActive(false);
-        menuButton.SetActive(false);
-        controls.SetActive(false);
-        t = 0;
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Ending")){
+            Time.timeScale = 1;
+            day.SetActive(true);
+            night.SetActive(false);
+            dayFloor.SetActive(true);
+            nightFloor.SetActive(false);
+            gameScreen.SetActive(false);
+            nextButton.SetActive(false);
+            shiftSound = GetComponent<AudioSource>();
+            lightIcon.SetActive(false);
+            darkIcon.SetActive(false);
+            currentTime = 0f;
+            darkPoints = 0;
+            lightPoints = 0;
+            darkDisplay.text = "";
+            lightDisplay.text = "";
+            message.text = "";
+            winState = false;
+            isPaused = false;
+            addedScore = false;
+            resumeButton.SetActive(false);
+            menuButton.SetActive(false);
+            controls.SetActive(false);
+            t = 0;
+            endingVal = 0;
+        }
+        else{
+            message.text = "";
+            score.text = "";
+            menuButton.SetActive(false);
+            if (totalPoints > 60){
+                goodEndScreen.color = new Color (1f,1f,1f,1f);
+                goodEndingText.enabled = true;
+                badEndingText.enabled = false;
+            }
+            else{           
+                badEndScreen.color = new Color (0f,0f,0f,1f);
+			    badEndingText.enabled = true;
+			    goodEndingText.enabled = false;		
+            }
+            StartCoroutine(FinalMessage());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space") && winState == false && isPaused == false && lb.isFloating == false){
+        Debug.Log(totalPoints > 60);
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Ending")){
+            if (Input.GetKeyDown("space") && winState == false && isPaused == false && lb.isFloating == false){
             shiftSound.Play();
             if (dayOrNight == 0){
                 day.SetActive(false);
@@ -81,7 +100,6 @@ public EndingScript endOfGame;
                     totalPoints += lightPoints;
                     totalPoints += darkPoints;
                     addedScore = true;
-                    Debug.Log(totalPoints);
                 }
                 StartCoroutine(DisplayScore());
             }
@@ -118,9 +136,10 @@ public EndingScript endOfGame;
             goodEndScreen.color = Color.Lerp(new Color (1f,1f,1f,0f), Color.white, t);
             t += Time.deltaTime / 3;
         }
-        else if (endingVal == -1){
+        if (endingVal == -1){
             badEndScreen.color = Color.Lerp(new Color (1f,1f,1f,0f), Color.black, t);
             t += Time.deltaTime / 3;
+        }
         }
     }
 
@@ -163,8 +182,6 @@ public EndingScript endOfGame;
             else{
                 endingVal = -1;
             }
-            endOfGame.goodOrBad = endingVal;
-			
         }
         else{
             SceneManager.LoadScene("Ending");
@@ -180,6 +197,16 @@ public EndingScript endOfGame;
         darkDisplay.text = "Dark Gems Collected: " + darkPoints + " / " + totalDark;
         darkIcon.SetActive(true);
         nextButton.SetActive(true);
+    }
+
+    public IEnumerator FinalMessage()
+    {
+        yield return new WaitForSeconds(23.0f);
+        message.text = "Final Score";
+        yield return new WaitForSeconds(1.5f);
+        score.text = totalPoints + " / 100";
+        menuButton.SetActive(true);
+
     }
 }
 

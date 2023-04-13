@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6615527059962488886}
   - component: {fileID: 5013881217925573758}
   - component: {fileID: 1121073418416643658}
+  - component: {fileID: 403867784761375034}
   m_Layer: 5
   m_Name: GoodEndingText
   m_TagString: Untagged
@@ -144,3 +145,26 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &403867784761375034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8068827186225004468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdccdb2503e6cac4f859733aeb03f390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToScroll: '...and so, the world of Lumos was rescued. Our hero, the Lightbringer
+    has saved the day (quite literally), darkness had stopped encroaching upon the
+    day. With time, the people had also vanquished The Capital, realising communal
+    living and coexistence is the path to peace.  People were no longer living under
+    the rule of the few who had sold the idea of artiticial light anymore. Nature
+    was bountiful. Tranquility had embraced the world of Lumos. Or I should say,
+    the newly reformed renamed world that was - the Republic of Light and Dark to
+    embrace the multipolarity of the spectrum of light and the absence of it.   As
+    for our hero, they had become the representative that had dictated the warmth
+    of the light and wonders of the night. '
+  scrollSpeed: 25

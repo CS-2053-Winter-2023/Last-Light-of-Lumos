@@ -691,7 +691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -243.6}
+  m_AnchoredPosition: {x: 0, y: -161}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724497320
@@ -825,7 +825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 709.3, y: 70.396}
+  m_AnchoredPosition: {x: 568, y: 70.396}
   m_SizeDelta: {x: 215.4952, y: 46.792}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &970110875
@@ -1492,6 +1492,7 @@ RectTransform:
   - {fileID: 970110874}
   - {fileID: 1643727421}
   - {fileID: 724497319}
+  - {fileID: 1972769652}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2474,7 +2475,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1291000092}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2534,12 +2535,12 @@ MonoBehaviour:
     alive - life. The habitants of the darkness multiplied as they resistance towards
     The Capital which produced the artificial light grew stronger.
 
-    
 
-    You,
-    the Lightbringer -the One born of light when the sky was pitch black, will now
-    restore harmony via switching between the realms of shadow and light such that
-    light and darkness can coexist the world it shares together.'
+
+    You, the
+    Lightbringer -the One born of light when the sky was pitch black, will now restore
+    harmony via switching between the realms of shadow and light such that light
+    and darkness can coexist the world it shares together.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

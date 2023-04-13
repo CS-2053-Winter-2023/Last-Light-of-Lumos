@@ -72,9 +72,13 @@ MonoBehaviour:
   darkDisplay: {fileID: 0}
   lightDisplay: {fileID: 0}
   message: {fileID: 0}
+  badEnding: {fileID: 0}
+  goodEnding: {fileID: 0}
   winState: 0
   isPaused: 0
   addedScore: 0
+  endingVal: 0
+  endOfGame: {fileID: 0}
 --- !u!82 &2364955288483149179
 AudioSource:
   m_ObjectHideFlags: 0
