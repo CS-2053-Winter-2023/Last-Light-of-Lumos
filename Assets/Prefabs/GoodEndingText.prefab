@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6615527059962488886}
   - component: {fileID: 5013881217925573758}
   - component: {fileID: 1121073418416643658}
-  - component: {fileID: 403867784761375034}
+  - component: {fileID: 6406683149836307292}
   m_Layer: 5
   m_Name: GoodEndingText
   m_TagString: Untagged
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &403867784761375034
+--- !u!114 &6406683149836307292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,3 +168,4 @@ MonoBehaviour:
     for our hero, they had become the representative that had dictated the warmth
     of the light and wonders of the night. '
   scrollSpeed: 25
+  begin: 0
