@@ -72,7 +72,6 @@ public TextScrollScript badEndingText, goodEndingText;
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(totalPoints > 60);
         if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("Ending")){
             if (Input.GetKeyDown("space") && winState == false && isPaused == false && lb.isFloating == false){
             shiftSound.Play();
@@ -202,7 +201,7 @@ public TextScrollScript badEndingText, goodEndingText;
 
     public IEnumerator FinalMessage()
     {
-        yield return new WaitForSeconds(23.0f);
+        yield return new WaitForSeconds(40.0f);
         message.text = "Final Score";
         yield return new WaitForSeconds(1.5f);
         score.text = totalPoints + " / 100";
