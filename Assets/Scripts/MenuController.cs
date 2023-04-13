@@ -13,7 +13,7 @@ public class MenuController : MonoBehaviour
     public float duration;
     float t;
     Color color1 = new Color(1f,1f,1f,0f);
-	public TextMeshProUGUI beginningText;
+    public TextScrollScript beginningText;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +31,7 @@ public class MenuController : MonoBehaviour
         next.SetActive(false);
         controls.SetActive(false);
         credits.SetActive(false);
-		
-		beginningText.enabled = false;
-		
+		beginningText.begin = false;	
     }
 
     public void LoadText(){
@@ -94,8 +92,7 @@ public class MenuController : MonoBehaviour
             background.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.black, t);
             t += Time.deltaTime / duration;
 			
-			beginningText.enabled = true;
-			
+			beginningText.begin = true;
         }
 
     }

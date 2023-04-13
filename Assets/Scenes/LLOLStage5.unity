@@ -8766,8 +8766,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206678434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 69.75, y: -2.2, z: -1.0880955}
-  m_LocalScale: {x: 1.0710616, y: 1.9178475, z: 0.5390741}
+  m_LocalPosition: {x: 69.75, y: -1.7103, z: -1.0880955}
+  m_LocalScale: {x: 1.0710616, y: 2.2210593, z: 0.5390741}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2009624893}
@@ -10871,6 +10871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1523637419}
   - component: {fileID: 1523637420}
+  - component: {fileID: 1523637421}
   m_Layer: 3
   m_Name: darkground4 (26)
   m_TagString: Ground
@@ -10945,6 +10946,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1523637421
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523637418}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 481db9502029edc4398b056c8bfc789d, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.26, y: 3.23}
+    newSize: {x: 6.26, y: 3.23}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.26, y: 3.23}
+  m_EdgeRadius: 0
 --- !u!4 &1547860614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 578819572380560343, guid: e83d8eabb0552c84aac5a86318bdbd41, type: 3}

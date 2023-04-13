@@ -261,7 +261,7 @@ PrefabInstance:
     - target: {fileID: 2364955288483149177, guid: 3e1d66c822e95ca47b1ca0ea48fd3705, type: 3}
       propertyPath: badEndingText
       value: 
-      objectReference: {fileID: 1454247475}
+      objectReference: {fileID: 1633112506583189244}
     - target: {fileID: 2364955288483149177, guid: 3e1d66c822e95ca47b1ca0ea48fd3705, type: 3}
       propertyPath: goodEndScreen
       value: 
@@ -269,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 2364955288483149177, guid: 3e1d66c822e95ca47b1ca0ea48fd3705, type: 3}
       propertyPath: goodEndingText
       value: 
-      objectReference: {fileID: 2018351432}
+      objectReference: {fileID: 894553808}
     - target: {fileID: 2364955288483149182, guid: 3e1d66c822e95ca47b1ca0ea48fd3705, type: 3}
       propertyPath: m_Name
       value: GameController
@@ -284,6 +284,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1078263907}
     m_Modifications:
     - target: {fileID: 1121073418416643658, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121073418416643658, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 1121073418416643658, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
       propertyPath: m_fontColor.b
       value: 0.06941973
       objectReference: {fileID: 0}
@@ -295,6 +303,14 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 0.0754717
       objectReference: {fileID: 0}
+    - target: {fileID: 1121073418416643658, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121073418416643658, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
     - target: {fileID: 1121073418416643658, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4279374355
@@ -365,7 +381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6615527059962488886, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6615527059962488886, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -389,6 +405,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
+--- !u!114 &894553808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 403867784761375034, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
+  m_PrefabInstance: {fileID: 894553807}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018351430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdccdb2503e6cac4f859733aeb03f390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1078263903
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,8 +693,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.356445, y: 57.449707}
-  m_SizeDelta: {x: 816.1304, y: 479.9909}
+  m_AnchoredPosition: {x: 19.356445, y: 29.1986}
+  m_SizeDelta: {x: 816.1304, y: 503.5335}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188210430
 MonoBehaviour:
@@ -1129,17 +1156,7 @@ MonoBehaviour:
     gather enough power to bring equilibrium. Everyone wonders, whether another Lightbringer
     will be born in their era to attempt to restore balance once again. '
   scrollSpeed: 25
---- !u!114 &1454247475 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3559465825369948106, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
-  m_PrefabInstance: {fileID: 1633112506583189243}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454247472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  begin: 0
 --- !u!1 &1455574672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,8 +1192,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.356445, y: 57.449707}
-  m_SizeDelta: {x: 816.1304, y: 479.9909}
+  m_AnchoredPosition: {x: 19.356445, y: 32.73}
+  m_SizeDelta: {x: 816.1304, y: 500.5906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455574674
 MonoBehaviour:
@@ -1427,17 +1444,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6615527059962488886, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
   m_PrefabInstance: {fileID: 894553807}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2018351432 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1121073418416643658, guid: 8cb56046897eace4f9f9f00ef250e851, type: 3}
-  m_PrefabInstance: {fileID: 894553807}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018351430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2018351434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1461,6 +1467,7 @@ MonoBehaviour:
     for our hero, they had become the representative that had dictated the warmth
     of the light and wonders of the night. '
   scrollSpeed: 25
+  begin: 0
 --- !u!114 &2048662917 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2364955288483149177, guid: 3e1d66c822e95ca47b1ca0ea48fd3705, type: 3}
@@ -1484,6 +1491,14 @@ PrefabInstance:
       value: BadEndingText
       objectReference: {fileID: 0}
     - target: {fileID: 3559465825369948106, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559465825369948106, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 3559465825369948106, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -1495,6 +1510,14 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3559465825369948106, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559465825369948106, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
     - target: {fileID: 3559465825369948106, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
@@ -1565,7 +1588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4624612110208030777, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -32.937
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4624612110208030777, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1585,3 +1608,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
+--- !u!114 &1633112506583189244 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8465089087804439080, guid: 38cb12b1b6db1be4aa1c57cf1c1a0a91, type: 3}
+  m_PrefabInstance: {fileID: 1633112506583189243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454247472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdccdb2503e6cac4f859733aeb03f390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

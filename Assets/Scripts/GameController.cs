@@ -16,10 +16,11 @@ public int dayOrNight = 0, i = 0, lightPoints, darkPoints, totalLight, totalDark
 public float currentTime, t;
 public AudioSource shiftSound;
 public LBController lb;
-public TextMeshProUGUI timer, darkDisplay, lightDisplay, message, badEndingText, goodEndingText, score;
+public TextMeshProUGUI timer, darkDisplay, lightDisplay, message, score;
 public bool winState, isPaused, addedScore;
 private static int totalPoints = 0;
 public int endingVal;
+public TextScrollScript badEndingText, goodEndingText;
 
     // Start is called before the first frame update
     void Start()
@@ -56,13 +57,13 @@ public int endingVal;
             menuButton.SetActive(false);
             if (totalPoints > 60){
                 goodEndScreen.color = new Color (1f,1f,1f,1f);
-                goodEndingText.enabled = true;
-                badEndingText.enabled = false;
+                goodEndingText.begin = true;
+                badEndingText.begin = false;
             }
             else{           
                 badEndScreen.color = new Color (0f,0f,0f,1f);
-			    badEndingText.enabled = true;
-			    goodEndingText.enabled = false;		
+			    badEndingText.begin = true;
+			    goodEndingText.begin = false;		
             }
             StartCoroutine(FinalMessage());
         }
